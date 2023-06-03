@@ -1,0 +1,38 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
+<!-- component -->
+<div class="flex-wrap place-items-center">
+  <section class="relative mx-auto">
+    <!-- navbar -->
+    <nav class="flex justify-between text-white " style="background-color: #282828;    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+      <div class="flex items-center w-full px-5 py-6 xl:px-12">
+        <a class="text-3xl font-bold font-heading" href="/">
+          <!-- <img class="h-9" src="logo.png" alt="logo"> -->
+          Not Youtube
+        </a>
+        <!-- Nav Links -->
+        <ul class="hidden px-4 mx-auto space-x-12 font-semibold md:flex font-heading">
+          <li><a class="hover:text-gray-200" href="/">Home</a></li>
+          <% if current_user %>
+            <li><a class="hover:text-gray-200" href="#">  <%= link_to "Upload", new_post_path %></a></li>
+            <li><a class="hover:text-gray-200" href="#">  <%= link_to "My Media", pages_media_path %></a></li>
+            <li>
+              <a class="hover:text-gray-200">
+                <%#= link_to "Profile", current_user %>
+              </a></li>
+            <%= button_to(
+        "Log Out",
+        destroy_user_session_path,
+        method: :delete) %></li>
+        <% else %>
+          <li><a class="hover:text-gray-200" href="#">  <%= link_to "Sign up", new_user_registration_path %></a></li>
+        </ul>
+      <% end %>
+      <!-- Header Icons -->
+    </div>
+    <!-- Responsive navbar -->
+    <%#= render "layouts/search_bar"%>
+  </nav>
+</section>
+</div>
