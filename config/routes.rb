@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :controllers
 
   resources :likes, only: [:create, :destroy]
   get 'pages/media'

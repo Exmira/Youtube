@@ -1,29 +1,68 @@
-<div class="w-full h-full max-w-lg mx-auto align-middle">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-6'}) do |f| %>
-    <h2 class="text-center">Register</h2>
+
+
+<div class="grid grid-cols-1 lg:grid-cols-2">
+<div class=" h-full max-w-lg mx-auto align-middle">
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'bg-white rounded px-8 pt-6 pb-8 mb-6'}) do |f| %>
+
+    <h2 class="text-center text-5xl leading-relaxed text-gray-800">Join the Crumble Community</h2>
+    <p class="text-md text-center"> Download free photos and videos powered
+by a community of photographers. </p>
+             <%= render "devise/shared/links" %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <%
-      label_classes = "block text-sm font-bold mb-2 #{alert ? "text-red-500" : "text-gray-700"}"
-      input_classes = "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline #{alert ? "border-red-500" : nil}"
+      label_classes = "block text-md mb-2 mt-4 #{alert ? "text-red-500" : "text-gray-700"}"
+      input_classes = "shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline #{alert ? "border-red-500" : nil}"
     %>
+    
+    
+    <div class="mb-4">
+      <%= f.label :name, "Full name", class: label_classes %>
+      <%= f.text_field :full_name, autofocus: true, class: input_classes, required: true %>
+
+    </div>
     <div class="mb-4">
       <%= f.label :email, "Email", class: label_classes %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: input_classes %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: input_classes, required: true  %>
     </div>
     <div class="mb-4">
       <%= f.label :password, "Password", class: label_classes %>
-      <% if @minimum_password_length %>
-        <em class="block mb-2 text-sm font-normal text-gray-900">(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %>
-      <%= f.password_field :password, autocomplete: "new-password", class: input_classes %>
+      <%= f.password_field :password, autocomplete: "new-password", class: input_classes, required: true  %>
     </div>
-    <div class="mb-4">
-      <%= f.label :password_confirmation, "Confirm password", class: label_classes %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: input_classes %>
-    </div>
-    <div class="flex items-center content-end justify-between">
-      <%= f.submit "Register", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-6 rounded focus:outline-none focus:shadow-outline" %>
-      <%= render "devise/shared/links" %>
-    </div>
+
+      <%= f.submit "Create an Account", class: "w-full bg-blue-500 hover:bg-blue-700 text-white py-4 px-4 mr-6 rounded focus:outline-none focus:shadow-outline" %>
+ 
+
   <% end %>
+</div>
+
+<div class="image-right">
+
+<%= image_tag 'cover.jpg', alt: 'My Image', class: 'img-thumbnail' %>
+
+<style>
+.img-thumbnail
+{
+  position: absolute;
+
+  width: 50%;
+    object-fit: contain;
+
+  right: 0;
+}
+body
+{
+  overflow-y: hidden;
+}
+@media (max-width: 1250px) {
+  .img-thumbnail
+  {
+    display: none;
+  }
+}
+
+
+</style>
+
+
 </div>

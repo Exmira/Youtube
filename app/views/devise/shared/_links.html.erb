@@ -1,5 +1,5 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%#= link_to "Log in", new_session_path(resource_name) %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -19,12 +19,41 @@
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= form_for "Login",
-      url: omniauth_authorize_path(resource_name, provider), 
-      method: :post,
-      data: {turbo: "false"} do |f| %>
-        <%= f.submit "Login", type: "image", src: url_for("/assets/btn_google_signin_light_normal_web.png") %>
-    <% end %>
-  <% end %>
+<%= link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "google-sign-in" do %>
+  <%= image_tag("google_icon.svg", alt: "Google Icon") %>
+  Join with Google
 <% end %>
+
+<% end %>
+
+<style>
+/* app/assets/stylesheets/application.css */
+
+.google-sign-in {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  background-color: #fff; /* Customize the background color as needed */
+  border: 2px solid rgba(0,0,0,0.2); /* Customize the border as needed */
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+ /* Customize the text color as needed */
+  font-size: 18px;
+  opacity: 0.7;
+  font-weight: 300;
+
+  transition: background-color 0.3s;
+}
+
+.google-sign-in:hover {
+  box-shadow:  0 0 10px rgba(0,0,0,0.1);
+}
+
+.google-sign-in img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 40px;
+  margin-right: 10px; /* Adjust the spacing between the icon and the text as needed */
+}
+</style>
