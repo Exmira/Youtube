@@ -16,6 +16,7 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '58c29a4ab136eabc497a446f48c689e685a8ba9dff6b2bb7bb4a75181dd7dd5379f32eca02e908ce00a11b30767d9c224eb5890fe22904053d750360f7893e69'
 
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -24,7 +25,11 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
+
+  google_client_id = ENV['GOOGLE_CLIENT_ID']
+  google_client_secret = ENV['GOOGLE_CLIENT_SECRET']
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.omniauth :google_oauth2, google_client_id, google_client_secret
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

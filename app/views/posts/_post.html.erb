@@ -1,84 +1,89 @@
-<div id="<%= dom_id post %>" class="youtube-layout">
+<div id="<%= dom_id(post) %>" class="youtube-layout relative">
   <% post.video.blob.metadata.fetch(:duration, nil) %>
   <% if post.image.attached? %>
-    <%= image_tag(post.image, class: "thumbnail") %>
+    <%= image_tag(post.image, class: "thumbnail object-cover") %>
   <% end %>
   <% if action_name != "show" %>
-    <%= link_to post, class: "overlay" do %>
-      <div class="overlay-content">
-        <h2 class="post-title"><%= post.title %></h2>
-        <p class="text-white post-details">
+    <%= link_to post, class: "overlay flex items-center justify-center opacity-0 transition-opacity duration-300" do %>
+      <div class="overlay-content text-center">
+        <h2 class="post-title text-lg font-bold text-white leading-tight mb-2"><%= post.title %></h2>
+        <p class="text-white post-details text-sm">
           <%#= post.user.email %>
           <br>
-          Posted <%= time_ago_in_words(post.created_at) %> ago
+          <%= time_ago_in_words(post.created_at) %> ago
         </p>
       </div>
     <% end %>
   <% end %>
 </div>
+
 <style>
+.youtube-layout {
+  position: relative;
+  width: 24%;
+  height: 200px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.thumbnail {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.youtube-layout:hover .overlay {
+  opacity: 1;
+}
+
+.overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .35) 70%);
+  pointer-events: none;
+}
+
+.post-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.post-details {
+  font-size: 14px;
+  color: white;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+
+/* Responsive changes */
+@media screen and (max-width: 768px) {
   .youtube-layout {
-    position: relative;
-
-    width: 24%;
-    height: 200px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    display: inline-block;
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-  }
-
-  .thumbnail {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-    width: 100%; /* Fill the container width */
-    height: 100%; /* Fill the container height */
-    object-fit: cover; /* Maintain aspect ratio and fill the container */
-  }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.7);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s;
   }
+}
 
-  .overlay-content {
-    text-align: center;
-  }
 
-  .overlay:hover {
-    opacity: 1;
-  }
-
-  .overlay:hover .thumbnail {
-    filter: brightness(70%);
-  }
-
-  .post-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-
-  .post-details {
-    font-size: 14px;
-  }
-
-  /* Responsive changes */
-  @media screen and (max-width: 768px) {
-    .youtube-layout {
-      width: 100%;
-    }
-  }
 </style>
