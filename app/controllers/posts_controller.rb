@@ -21,8 +21,13 @@ class PostsController < ApplicationController
   end
 
   def download
-    @post = Post.find(params[:id])
-    send_data @post.video.download, filename: @post.video.filename.to_s
+    @post = Post.friendly.find(params[:id])
+    if @post.video.attached?
+    send_data @post.video.download, filename: @post.video.filename.to_s 
+    else
+      send_data @post.image.download, filename: @post.image.filename.to_s 
+    end
+
   end
   #Ex:- :default =>''
 
@@ -78,7 +83,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

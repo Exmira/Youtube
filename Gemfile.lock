@@ -105,6 +105,8 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -294,11 +296,12 @@ DEPENDENCIES
   devise (~> 4.9, >= 4.9.2)
   dockerfile-rails (>= 1.5)
   dotenv-rails
+  friendly_id (~> 5.4.0)
   importmap-rails
   jbuilder
   omniauth
   omniauth-google-oauth2
-  omniauth-rails_csrf_protection
+  omniauth-rails_csrf_protection (~> 1.0)
   pg (~> 1.5)
   puma (~> 5.0)
   punching_bag

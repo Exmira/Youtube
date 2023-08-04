@@ -4,9 +4,9 @@ class PagesController < ApplicationController
       @posts = current_user.posts
   
       if @posts.empty?
-      @message = "Wow, that's a very clean portfolio!"
+      @message = "You have no posts yet."
       else
-        @message = "Here's your portfolio:"
+        @message = "Your portfolio:"
       end
 
       end

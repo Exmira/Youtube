@@ -12,9 +12,31 @@
   </head>
   <body>
     <%= render 'layouts/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div class="container px-5 mx-auto content ">
+    
+    <% if alert.present? || notice.present? %>
+<div role="alert">
+  <div class="bg-red-500 text-white font-bold  px-4 py-2">
+    Error
+  </div>
+  <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+    <p><%= alert %> </p>
+  </div>
+</div>
+<% end %>
+
+<% if notice.present? %>
+
+<div role="notice">
+  <div class="bg-green-500 text-white font-bold  px-4 py-2">
+    Success
+  </div>
+  <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-white-700">
+    <p><%= alert %> </p>
+  </div>
+</div>
+<% end %>
+
+    <div class="content ">
       <%= yield %>
     </div>
   </body>

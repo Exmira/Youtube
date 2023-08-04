@@ -1,5 +1,5 @@
 <div id="<%= dom_id(post) %>" class="youtube-layout relative">
-  <% post.video.blob.metadata.fetch(:duration, nil) %>
+
   <% if post.image.attached? %>
     <%= image_tag(post.image, class: "thumbnail object-cover") %>
   <% end %>

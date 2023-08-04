@@ -28,8 +28,13 @@ Devise.setup do |config|
 
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
-  
-  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
+
+
+  config.omniauth :google_oauth2, 
+  Rails.application.credentials.dig(:client_id),
+  Rails.application.credentials.dig(:client_secret)
+
+
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

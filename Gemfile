@@ -21,9 +21,10 @@ gem 'devise', '~> 4.9', '>= 4.9.2'
 gem "punching_bag"
 gem 'ransack', '~> 4.0'
 gem "tailwindcss-rails", "~> 2.0"
+gem 'friendly_id', '~> 5.4.0'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
-gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-rails_csrf_protection', "~> 1.0"
 
 group :development, :test do
 

@@ -1,14 +1,15 @@
 
 
-<div class="grid grid-cols-1 lg:grid-cols-2">
-<div class=" h-full max-w-lg mx-auto align-middle">
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'bg-white rounded px-8 pt-6 pb-8 mb-6'}) do |f| %>
-
+<div class="grid grid-cols-1 xl:grid-cols-2 ">
+<div class=" h-full  xl:px-32 px-4 mt-12  ">
     <h2 class="text-center text-5xl leading-relaxed text-gray-800">Join the Crumble Community</h2>
     <p class="text-md text-center"> Download free photos and videos powered
 by a community of photographers. </p>
              <%= render "devise/shared/links" %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'bg-white rounded mb-6'}) do |f| %>
+
+
+
     <%= render "devise/shared/error_messages", resource: resource %>
     <%
       label_classes = "block text-md mb-2 mt-4 #{alert ? "text-red-500" : "text-gray-700"}"
@@ -31,7 +32,7 @@ by a community of photographers. </p>
     </div>
 
       <%= f.submit "Create an Account", class: "w-full bg-blue-500 hover:bg-blue-700 text-white py-4 px-4 mr-6 rounded focus:outline-none focus:shadow-outline" %>
- 
+     <p class="text-md text-center text-gray-500 ">By joining, you agree to our Terms of Service and Privacy Policy </p>
 
   <% end %>
 </div>
@@ -50,10 +51,7 @@ by a community of photographers. </p>
 
   right: 0;
 }
-body
-{
-  overflow-y: hidden;
-}
+
 @media (max-width: 1250px) {
   .img-thumbnail
   {

@@ -1,18 +1,64 @@
-<div class="w-full h-full max-w-lg mx-auto align-middle" style="height: 300px;">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'}) do |f| %>
-    <h2 class="text-center">Log in</h2>
+
+
+<div class="grid grid-cols-1 xl:grid-cols-2">
+<div class=" h-full w-full xl:px-32 px-4 mt-12 ">
+    <h2 class="text-center text-5xl leading-relaxed text-gray-800">Welcome Back.</h2>
+    <p class="text-md text-center"> Login in to download free photos and videos. </p>
+            <%= render "devise/shared/links" %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'bg-white  rounded pt-6 pb-8 mb-4'}) do |f| %>
+
+
+ 
     <%= render "devise/shared/error_messages", resource: resource %>
+    <%
+      label_classes = "block text-md mb-2 mt-4 #{alert ? "text-red-500" : "text-gray-700"}"
+      input_classes = "shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline #{alert ? "border-red-500" : nil}"
+    %>
+    <p class="text-center text-md mt-4"> Or, login with your email </p>
+  
     <div class="mb-4">
-      <%= f.label :email, "Email", class: "block text-sm font-bold mb-2 text-gray-700"  %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <%= f.label :email, "Email", class: label_classes %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: input_classes, required: true  %>
     </div>
     <div class="mb-4">
-      <%= f.label :password, "Password", class: "block text-sm font-bold mb-2 text-gray-700" %>
-      <%= f.password_field :password, autocomplete: "current-password", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <%= f.label :password, "Password", class: label_classes %>
+      <%= f.password_field :password, autocomplete: "new-password", class: input_classes, required: true  %>
     </div>
-    <div class="flex items-center content-end justify-between">
-      <%= f.submit "Log in", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-6 rounded focus:outline-none focus:shadow-outline" %>
-      <%= render "devise/shared/links" %>
-    </div>
+
+      <%= f.submit "Login", class: "w-full bg-blue-500 hover:bg-blue-700 text-white py-4 px-4 mr-6 rounded focus:outline-none focus:shadow-outline" %>
+ 
+
   <% end %>
+</div>
+
+<div class="image-right">
+
+<%= image_tag 'login.jpg', alt: 'My Image', class: 'img-thumbnail', id:"fade-in-image" %>
+
+
+<style>
+
+
+
+.img-thumbnail
+{
+  position: absolute;
+
+  width: 50%;
+    object-fit: contain;
+
+  right: 0;
+}
+
+@media (max-width: 1250px) {
+  .img-thumbnail
+  {
+    display: none;
+  }
+}
+
+
+</style>
+
+
 </div>
