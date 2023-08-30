@@ -13,7 +13,7 @@
   <body>
     <%= render 'layouts/navbar' %>
     
-    <% if alert.present? || notice.present? %>
+    <% if alert.present? && !notice.present? %>
 <div role="alert">
   <div class="bg-red-500 text-white font-bold  px-4 py-2">
     Error
@@ -24,7 +24,7 @@
 </div>
 <% end %>
 
-<% if notice.present? %>
+<% if notice.present? && !alert.present? %>
 
 <div role="notice">
   <div class="bg-green-500 text-white font-bold  px-4 py-2">

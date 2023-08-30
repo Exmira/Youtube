@@ -6,7 +6,7 @@
 <br>
 <br>
 <% if current_user %>
-  <div id="posts" class="">
+  <div id="posts" class="min-w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     <%= render @posts %>
   </div>
 <% end %>
