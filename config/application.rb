@@ -10,7 +10,6 @@ module Youtube
   class Application < Rails::Application
 
 
-    Dotenv.load
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
@@ -20,7 +19,6 @@ Bundler.require(*Rails.groups)
 
 # Load dotenv only in development or test environment
 
-  Dotenv::Railtie.load
 
 
     # Configuration for the application, engines, and railties goes here.

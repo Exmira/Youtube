@@ -1,14 +1,13 @@
-# fly.toml app configuration file generated for green-dew-3109 on 2023-07-18T15:42:08+01:00
+# fly.toml app configuration file generated for workwokr on 2023-08-30T14:49:37+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "green-dew-3109"
+app = "workwokr"
 primary_region = "lhr"
 console_command = "/rails/bin/rails console"
 
-[deploy]
-  release_command = "./bin/rails db:prepare"
+[build]
 
 [http_service]
   internal_port = 3000

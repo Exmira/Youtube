@@ -16,7 +16,7 @@ gem "bootsnap", require: false
 
 
 # My gems
-gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'devise', '~> 4.9', '>= 4.9.2'
 gem "punching_bag"
 gem 'ransack', '~> 4.0'
@@ -25,7 +25,7 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', "~> 1.0"
-
+gem "mini_magick"
 group :development, :test do
 
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

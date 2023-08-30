@@ -15,6 +15,6 @@ class CreatePunchesTable < ActiveRecord::Migration[4.2]
   def self.down
     remove_index :punches, :name => :punchable_index
     remove_index :punches, :average_time
-    drop_table :punches
+    #drop_table :punches
   end
 end

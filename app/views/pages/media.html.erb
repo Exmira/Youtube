@@ -1,4 +1,4 @@
-<div class="container mt-4 px-4">
+<div class="container mt-24 px-24">
 <h6 class="block mb-5 text-5xl">
   <%= @message%>
 </h6>
@@ -6,7 +6,8 @@
 <br>
 <br>
 <% if current_user %>
-  <div id="posts" class="grid ">
+  <div id="posts" class="">
     <%= render @posts %>
   </div>
 <% end %>
+</div>
