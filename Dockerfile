@@ -27,7 +27,8 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential libpq-dev pkg-config
 
 # Install application gems
-COPY --link Gemfile Gemfile.lock ./
+COPY Gemfile Gemfile.lock ./
+
 RUN bundle install && \
     bundle exec bootsnap precompile --gemfile && \
     rm -rf ~/.bundle/ $BUNDLE_PATH/ruby/*/cache $BUNDLE_PATH/ruby/*/bundler/gems/*/.git
