@@ -44,6 +44,6 @@ end
 
 
 
-gem "dockerfile-rails", ">= 1.5", :group => :development
+gem "dockerfile-rails", ">= 1.5"
 
 gem "pg", "~> 1.5"
