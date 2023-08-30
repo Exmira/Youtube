@@ -73,7 +73,9 @@ class PostsController < ApplicationController
   def destroy
 
     if @post.user_id == current_user.id
+      @post.likes.destroy_all
     @post.destroy
+
 
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
