@@ -30,9 +30,7 @@ Devise.setup do |config|
 
 
 
-  config.omniauth :google_oauth2, 
-  Rails.application.credentials.dig(:client_id),
-  Rails.application.credentials.dig(:client_secret)
+  config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET']
 
 
 
