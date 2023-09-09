@@ -34,8 +34,10 @@
   <% if @post.video.attached? || @post.image.attached? %>
     <%= link_to 'Download', download_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
   <% end %>
+  
   <% if current_user %>
-    <%if @post.user_id == current_user.id %>
+  <%= @value = current_user.has_role? :admin %>
+    <%if @post.user_id == current_user.id || @value == true %>
       <%= button_to "like", likes_path, params: {like: {post_id: @post.id}}, method: :post, class:"mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <%= link_to 'Edit', edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block " %>
       <div class="inline-block ml-2 ">

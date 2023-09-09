@@ -27,8 +27,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', "~> 1.0"
 gem "mini_magick"
 gem "aws-sdk-s3", require: false
-
-
+gem "rolify"
 group :development, :test do
 
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

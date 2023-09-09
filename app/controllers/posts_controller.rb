@@ -55,8 +55,8 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
-
-    if @post.user_id == current_user.id || curent_user.admin?
+    @value = current_user.has_role? :admin
+    if @post.user_id == current_user.id || @value == true
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
@@ -71,8 +71,8 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-
-    if @post.user_id == current_user.id
+    @value = current_user.has_role? :admin
+    if @post.user_id == current_user.id || @value == true
       @post.likes.destroy_all
     @post.destroy
 
