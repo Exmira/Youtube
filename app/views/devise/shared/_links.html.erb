@@ -17,6 +17,7 @@
 
 
   <%- resource_class.omniauth_providers.each do |provider| %>
+  
     <%= form_for "Login",
       url: omniauth_authorize_path(resource_name, provider), 
       method: :post,

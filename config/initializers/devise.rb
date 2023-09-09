@@ -30,7 +30,8 @@ Devise.setup do |config|
 
 
 
-  config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET']
+  config.omniauth :google_oauth2, 
+  '448955303850-q8dehqtnk8kgthgrc9439c9p0jhcgsi0.apps.googleusercontent.com', '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'
 
 
 
