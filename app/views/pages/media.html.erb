@@ -6,6 +6,10 @@
 <br>
 <br>
 <% if current_user %>
+          <% if current_user.admin? %>
+You are an Admin
+There are users <% User.count %> online
+          <% end %>
   <div id="posts" class="min-w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     <%= render @posts %>
   </div>

@@ -4,6 +4,15 @@ class User < ApplicationRecord
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, omniauth_providers: [:google_oauth2]
 
+
+         enum role: [:user, :admin]
+         after_initialize :set_default_role, :if => :new_record?
+
+         def set_default_role
+        self.role ||= :admin
+
+        end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
