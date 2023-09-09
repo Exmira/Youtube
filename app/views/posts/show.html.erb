@@ -35,13 +35,13 @@
     <%= link_to 'Download', download_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
   <% end %>
   <% if current_user %>
-    <%#if @post.user_id == current_user.id %>
+    <%if @post.user_id == current_user.id %>
       <%= button_to "like", likes_path, params: {like: {post_id: @post.id}}, method: :post, class:"mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <%= link_to 'Edit', edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block " %>
       <div class="inline-block ml-2 ">
         <%= button_to 'Delete', post_path(@post), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
       </div>
-    <%# end %>
+    <% end %>
   <% end %>
 
 </div>

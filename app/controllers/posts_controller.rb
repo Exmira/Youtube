@@ -72,7 +72,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
 
-   # if @post.user_id == current_user.id
+    if @post.user_id == current_user.id
       @post.likes.destroy_all
     @post.destroy
 
@@ -82,7 +82,7 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
 
-  #end
+  end
   end
 
   private
