@@ -9,8 +9,10 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <script src="https://cdn.tailwindcss.com"></script>
+    
   </head>
   <body>
+  
     <%= render 'layouts/navbar' %>
     
     <% if alert.present? && !notice.present? %>
@@ -39,6 +41,9 @@
     <div class="content ">
       <%= yield %>
     </div>
+    <!-- 100% privacy-first analytics -->
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
   </body>
 </html>
 <style>
