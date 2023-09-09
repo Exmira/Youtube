@@ -28,6 +28,7 @@ gem 'omniauth-rails_csrf_protection', "~> 1.0"
 gem "mini_magick"
 gem "aws-sdk-s3", require: false
 
+
 group :development, :test do
 
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -49,3 +50,4 @@ end
 gem "dockerfile-rails", ">= 1.5"
 
 gem "pg", "~> 1.5"
+
