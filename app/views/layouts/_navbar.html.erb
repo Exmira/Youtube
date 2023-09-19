@@ -21,7 +21,7 @@
 
             <%= button_to("Log Out", destroy_user_session_path, method: :delete) %></li>
           <% else %>
-            <li><a class="hover:text-gray-200" href="#">  <%= link_to "Upload", new_user_registration_path %></a></li>
+            <li><a class="hover:text-gray-200" href="#">  <%= link_to "Sign up", new_user_registration_path %></a></li>
             <li><%= link_to "Login", new_user_session_path, class:"bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow" %></a></li>
           </ul>
         <% end %>

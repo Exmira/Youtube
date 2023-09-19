@@ -26,7 +26,9 @@
     <%= form.file_field :image, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
   <%= form.hidden_field :user_id, value: current_user.id %>
+    <p>  By continuing you agree to our 
+    <%= link_to "Terms of Use", pages_tos_path, style:"color: blue;" %> </p>
   <div class="inline">
-    <%= form.submit "Upload Video", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit "Upload Video", class: "rounded-lg py-3 px-5 bg-blue-600 text-white mt-2 inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>

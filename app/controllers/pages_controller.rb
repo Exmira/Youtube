@@ -11,4 +11,10 @@ class PagesController < ApplicationController
 
       end
   end
+
+
+  def tos
+
+
+  end
 end

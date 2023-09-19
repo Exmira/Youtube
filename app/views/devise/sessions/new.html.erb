@@ -24,8 +24,9 @@
       <%= f.label :password, "Password", class: label_classes %>
       <%= f.password_field :password, autocomplete: "new-password", class: input_classes, required: true  %>
     </div>
-
-      <%= f.submit "Login", class: "w-full bg-blue-500 hover:bg-blue-700 text-white py-4 px-4 mr-6 rounded focus:outline-none focus:shadow-outline" %>
+    By continuing you agree to our 
+    <%= link_to "Terms of Use", pages_tos_path, style:"color: blue;" %>
+      <%= f.submit "Login", class: "w-full bg-blue-500 hover:bg-blue-700 text-white mt-2 py-4 px-4 mr-6 rounded focus:outline-none focus:shadow-outline" %>
  
 
   <% end %>

@@ -12,6 +12,6 @@ Rails.application.routes.draw do
 
   resources :likes, only: [:create, :destroy]
   get 'pages/media'
-  get 'pages/media'
+  get 'pages/tos'
   get 'posts/:id/download', to: 'posts#download', as: 'download_post'
 end
