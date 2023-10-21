@@ -6,9 +6,13 @@
     <div class="video-container">
       <video controls>
         <source src="<%= url_for(@post.video) %>" type="video/mp4">
+        
         Your browser does not support the video tag.
+        
       </video>
+      
     </div>
+            <h2 class="text-1xl post-details">        Uploaded <%= time_ago_in_words(@post.created_at) %> ago</h2>
   <% else %>
 
     <% if @post.image.attached? %>
@@ -17,30 +21,42 @@
   <% end %>
 </div>
 
-  <div class="overlay xl:text-align:left; text-center ">
+  <div class="overlay xl:text-align:left;  ">
     <div class="overlay-content">
       <h2 class="text-5xl post-details"><%= @post.title %></h2>
       <h2 class="text-2xl post-details"><%= @post.hits %> views </h2>
-            <h2 class="text-1xl post-details"> Likes: <%= @post.likes.count %> </h2>
-            <h2 class="text-1xl post-details">         <%= time_ago_in_words(@post.created_at) %> ago</h2>
+
+
 
 
       <p class="post-details">
-       Posted by <%= @post.user.email %>
+       Posted by <%= @post.user.full_name %>
 
       </p>
     </div>
     <br>
   <% if @post.video.attached? || @post.image.attached? %>
     <%= link_to 'Download', download_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    
   <% end %>
   <% if current_user %>
+<% if current_user.likes?(@post) %>
+  <% unlike_button = button_to image_tag("heart-icon.svg", style:"height: 20px;"), like_path(@post.likes.find_by(user_id: current_user)), method: :delete, class:"mt-2 rounded-lg py-3 px-5 mt-5 bg-gray-100 inline-block font-medium" %>
+  <%= unlike_button %>
+<% else %>
+  <% like_button = button_to image_tag("heart.svg", style:"height: 20px;"), likes_path, params: { like: { post_id: @post.id } }, method: :post, class:"mt-2 rounded-lg py-3 px-5 mt-5 bg-gray-100 inline-block font-medium" %>
+  <%= like_button %>
+<% end %>
+
+
+ 
     <%if @post.user_id == current_user.id %>
-      <%= button_to "like", likes_path, params: {like: {post_id: @post.id}}, method: :post, class:"mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      <%= link_to 'Edit', edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block " %>
-      <div class="inline-block ml-2 ">
-        <%= button_to 'Delete', post_path(@post), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-      </div>
+
+     
+               <h2 class="text-1xl post-details"> Likes: <%= @post.likes.count %> </h2>   <%= link_to image_tag("edit.svg", style:"height: 20px;"), edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block " %>
+
+        <%= button_to image_tag("delete.svg", style:"height: 20px;"), post_path(@post), method: :delete, class: " rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+
     <% end %>
   <% end %>
 
@@ -49,7 +65,7 @@
 
   .youtube-layout {
 
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px 0px;
+
   width: 65%;
   margin: 0 auto;
   }

@@ -3,6 +3,7 @@
   <% if post.image.attached? %>
 <%= image_tag(post.image, quality: 10)%>
   <% end %>
+
   <% if action_name != "show" %>
     <%= link_to post, class: "overlay flex items-center justify-center opacity-0 transition-opacity duration-300" do %>
       <div class="overlay-content text-center">
