@@ -47,13 +47,13 @@
   <% like_button = button_to image_tag("heart.svg", style:"height: 20px;"), likes_path, params: { like: { post_id: @post.id } }, method: :post, class:"mt-2 rounded-lg py-3 px-5 mt-5 bg-gray-100 inline-block font-medium" %>
   <%= like_button %>
 <% end %>
-
+       <h2 class="text-1xl post-details"> Likes: <%= @post.likes.count %> </h2> 
 
  
     <%if @post.user_id == current_user.id %>
 
      
-               <h2 class="text-1xl post-details"> Likes: <%= @post.likes.count %> </h2>   <%= link_to image_tag("edit.svg", style:"height: 20px;"), edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block " %>
+          <%= link_to image_tag("edit.svg", style:"height: 20px;"), edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block " %>
 
         <%= button_to image_tag("delete.svg", style:"height: 20px;"), post_path(@post), method: :delete, class: " rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
 
